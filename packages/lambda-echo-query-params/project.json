@@ -1,0 +1,52 @@
+{
+  "root": "packages/lambda-echo-query-params",
+  "sourceRoot": "packages/lambda-echo-query-params/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/lambda-echo-query-params",
+        "main": "packages/lambda-echo-query-params/src/lambda.ts",
+        "tsConfig": "packages/lambda-echo-query-params/tsconfig.app.json",
+        "assets": ["packages/lambda-echo-query-params/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "packages/lambda-echo-query-params/src/environments/environment.ts",
+              "with": "packages/lambda-echo-query-params/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "lambda-echo-query-params:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/lambda-echo-query-params/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/lambda-echo-query-params"],
+      "options": {
+        "jestConfig": "packages/lambda-echo-query-params/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,26 @@
+# lambda-echo-query-params.yml
+service: echoQueryParams
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: prod
+  region: us-east-1
+# Deployment packaging configuration
+package:
+  # Directories and files to include in the deployed package
+  patterns:  
+    - dist/packages/lambda-echo-query-params/main.js
+
+functions:
+  # name of the function
+  echoQueryParams:
+    # the file and module for this specific function. Cannot be used with 'image'
+    handler: dist/packages/lambda-echo-query-params/main.lambdaHandler
+    events:
+      # HTTP API endpoint (API Gateway v2)
+      - httpApi:
+          method: GET
+          path: /get
+
+

@@ -1,4 +1,6 @@
 {
   "version": 2,
-  "projects": {}
+  "projects": {
+    "lambda-echo-query-params": "packages/lambda-echo-query-params"
+  }
 }
