@@ -2,7 +2,9 @@
 
 # Learn
 
-This project was generated using [Nx](https://nx.dev).
+Learning front end development with frontglue. Codebase for content shared via video tutorials
+
+This project was generated using [Nx](https://nx.dev). Nx Documentation below:
 
 <p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
 
